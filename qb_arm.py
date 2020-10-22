@@ -9,31 +9,7 @@ import plotly.express as px
 import streamlit as st
 from PIL import Image
 
-tracking = pd.read_csv('week17.csv')
-
-# Creating a unique key for every play in every game.
-tracking['gameId'] = tracking['gameId'].astype('str')
-tracking['playId'] = tracking['playId'].astype('str')
-tracking['unique_playId'] = tracking.gameId+''+tracking.playId
-
-# Creating a table of QB names and their uniuqe_playId.
-qb = tracking[tracking.position == 'QB'][['unique_playId', 'displayName', 'frameId']]
-
-# Creating a table of football tracking metrics.
-football = tracking[tracking.displayName == 'Football']
-
-# Merging the two tables so I can analyze the football tracking associated with each QB.
-fb_speed = pd.merge(qb, football, on=['unique_playId', 'frameId'])
-
-speed = fb_speed.groupby(['displayName_x', 'frameId']).agg({
-    's': 'max',
-    'a': 'max'
-}
-).reset_index()
-
-speed.rename(columns={'displayName_x': 'QB', 'frameId': 'frame_id',
-                      's': 'speed', 'a': 'acceleration'}, inplace=True)
-
+speed = pd.read_csv('week17.csv')
 
 josh_allen = speed[speed.QB == 'Josh Allen']
 josh_allen_plot = px.line(josh_allen, x='frame_id', y='speed',
