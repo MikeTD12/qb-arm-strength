@@ -33,9 +33,15 @@ def main():
 
     if page == 'Home Page':
         st.image(homepage_image, use_column_width=True)
-        st.title('QB Throwing Power - Week 17, 2018')
+        st.title('NFL Quarterbacks - Advanced Analytics')
         st.write('''
-        something,  something  something,  something,  something,  something,  something,  something,  something
+        Have you ever wondered how hard your favorite QB can throw the football? This site aggregates data from the NFL
+        where a micro chip is embedded into the players' shoulder pads as well as the ball itself on every play.
+        
+        The focus will be on the speed of the football in miles per hour, to analyze your favorite QB's arm strength.
+        The data tracks the football in **every frame of every play** during week 17 of the 2018 season.
+        
+        Navigate to the quarterback of your choice using the drop down on the left side of this page.
         ''')
     elif page == 'Josh Allen':
         st.title('Josh ALlen Throwing Power - Week 17, 2018')
@@ -54,9 +60,8 @@ def main():
         st.write('''
                 ### How Do I Read This Chart?
                 The line chart below tracks the speed (in miles per hour) of the football, frame by frame during a play.
-                The data aggregates to the "max" speed of the football at each frame. For example, in week 17 of the
-                2018 NFL football season, Matthew Stafford dropped back to throw the football 28 times. On one play, in the 42nd
-                frame of the play, the football was moving at 25.12 MPH.
+                The data aggregates to the "max" speed of the football at each frame. For example, on one play, in 
+                the 42nd frame, the football was moving at 25.12 MPH.
                 ''')
         st.write(matthew_stafford_plot)
     elif page == 'Jared Goff':
@@ -65,12 +70,10 @@ def main():
         st.write('''
                 ### How Do I Read This Chart?
                 The line chart below tracks the speed (in miles per hour) of the football, frame by frame during a play.
-                The data aggregates to the "max" speed of the football at each frame. For example, in week 17 of the
-                2018 NFL football season, Jared Goff dropped back to throw the football 28 times. On one play, in the 40th
-                frame of the play, the football was moving at 25.85 MPH.
+                The data aggregates to the "max" speed of the football at each frame. For example, on one play, in 
+                the 40th frame of the play, the football was moving at 25.85 MPH.
                 ''')
         st.write(jared_goff_plot)
 
 
 st.write(main())
-
